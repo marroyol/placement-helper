@@ -1,12 +1,12 @@
 ﻿<Window x:Class="PlacementHelper.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Placement Helper" Height="600" Width="800" Background="#22303e"
+        Title="Placement Helper" Height="600" Width="800" Background="{StaticResource BackgroundColor}"
         WindowStyle="None" AllowsTransparency="True">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0" ResizeBorderThickness="5" CornerRadius="10"/>
     </WindowChrome.WindowChrome>
-    <Border CornerRadius="10" Background="#22303e">
+    <Border CornerRadius="10" Background="{StaticResource BackgroundColor}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -14,48 +14,48 @@
             </Grid.RowDefinitions>
 
             <!-- Custom Title Bar -->
-            <DockPanel Grid.Row="0" Background="#34495e" Height="30" VerticalAlignment="Top" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+            <DockPanel Grid.Row="0" Background="{StaticResource AccentColor}" Height="30" VerticalAlignment="Top" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Content="_" Click="MinimizeButton_Click" Background="#34495e" Foreground="#ecf0f1" BorderThickness="0" Width="30" Height="30"/>
-                    <Button Content="□" Click="MaximizeButton_Click" Background="#34495e" Foreground="#ecf0f1" BorderThickness="0" Width="30" Height="30"/>
-                    <Button Content="X" Click="CloseButton_Click" Background="#e74c3c" Foreground="#ecf0f1" BorderThickness="0" Width="30" Height="30"/>
+                    <Button Content="_" Click="MinimizeButton_Click" Background="{StaticResource AccentColor}" Foreground="#FFFFFF" BorderThickness="0" Width="30" Height="30"/>
+                    <Button Content="□" Click="MaximizeButton_Click" Background="{StaticResource AccentColor}" Foreground="#FFFFFF" BorderThickness="0" Width="30" Height="30"/>
+                    <Button Content="X" Click="CloseButton_Click" Background="#e74c3c" Foreground="#FFFFFF" BorderThickness="0" Width="30" Height="30"/>
                 </StackPanel>
             </DockPanel>
 
             <!-- Content Panel -->
             <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
                 <StackPanel Margin="10">
-                    <TextBlock Text="Week Number:" Foreground="#ecf0f1" Margin="0,10,0,5" FontFamily="{StaticResource ModernSansLightFont}"/>
+                    <TextBlock Text="Week Number:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource SegoeUI}"/>
                     <TextBox Name="weekNumberTextBox" Height="30" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}"/>
 
-                    <TextBlock Text="Start Date:" Foreground="#ecf0f1" Margin="0,10,0,5" FontFamily="{StaticResource ModernSansLightFont}"/>
+                    <TextBlock Text="Start Date:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource SegoeUI}"/>
                     <DatePicker Name="startDatePicker" Height="30" Margin="0,0,0,10" Style="{StaticResource ModernDatePicker}"/>
 
-                    <TextBlock Text="Activity Description:" Foreground="#ecf0f1" Margin="0,10,0,5" FontFamily="{StaticResource ModernSansLightFont}"/>
+                    <TextBlock Text="Activity Description:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource SegoeUI}"/>
                     <TextBox Name="activityDescriptionTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
-                    <TextBlock Text="Duration (hours):" Foreground="#ecf0f1" Margin="0,10,0,5" FontFamily="{StaticResource ModernSansLightFont}"/>
+                    <TextBlock Text="Duration (hours):" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource SegoeUI}"/>
                     <TextBox Name="durationTextBox" Height="30" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}"/>
 
-                    <TextBlock Text="Describe:" Foreground="#ecf0f1" Margin="0,10,0,5" FontFamily="{StaticResource ModernSansLightFont}"/>
+                    <TextBlock Text="Describe:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource SegoeUI}"/>
                     <TextBox Name="describeTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
-                    <TextBlock Text="Interpret:" Foreground="#ecf0f1" Margin="0,10,0,5" FontFamily="{StaticResource ModernSansLightFont}"/>
+                    <TextBlock Text="Interpret:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource SegoeUI}"/>
                     <TextBox Name="interpretTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
-                    <TextBlock Text="Evaluate:" Foreground="#ecf0f1" Margin="0,10,0,5" FontFamily="{StaticResource ModernSansLightFont}"/>
+                    <TextBlock Text="Evaluate:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource SegoeUI}"/>
                     <TextBox Name="evaluateTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
-                    <TextBlock Text="Plan:" Foreground="#ecf0f1" Margin="0,10,0,5" FontFamily="{StaticResource ModernSansLightFont}"/>
+                    <TextBlock Text="Plan:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource SegoeUI}"/>
                     <TextBox Name="planTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
-                    <TextBlock Text="Additional Notes:" Foreground="#ecf0f1" Margin="0,10,0,5" FontFamily="{StaticResource ModernSansLightFont}"/>
+                    <TextBlock Text="Additional Notes:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource SegoeUI}"/>
                     <TextBox Name="additionalNotesTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
-                    <TextBlock Text="Feedback Received:" Foreground="#ecf0f1" Margin="0,10,0,5" FontFamily="{StaticResource ModernSansLightFont}"/>
+                    <TextBlock Text="Feedback Received:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource SegoeUI}"/>
                     <TextBox Name="feedbackReceivedTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
-                    <TextBlock Text="Goals for Next Week:" Foreground="#ecf0f1" Margin="0,10,0,5" FontFamily="{StaticResource ModernSansLightFont}"/>
+                    <TextBlock Text="Goals for Next Week:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource SegoeUI}"/>
                     <TextBox Name="goalsForNextWeekTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
                     <!-- Buttons -->

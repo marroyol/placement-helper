@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\Inter.ttc" />
     <None Remove="Fonts\ModernSans-Light.otf" />
   </ItemGroup>
 
@@ -17,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Fonts\Inter.ttc" />
     <Resource Include="Fonts\ModernSans-Light.otf" />
   </ItemGroup>
 
