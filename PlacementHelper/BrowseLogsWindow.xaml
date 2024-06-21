@@ -6,22 +6,42 @@
         <WindowChrome CaptionHeight="0" ResizeBorderThickness="5" CornerRadius="10"/>
     </WindowChrome.WindowChrome>
     <Border CornerRadius="10" Background="#22303e">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="30*"/>
-                <ColumnDefinition Width="70*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+        <DockPanel>
+            <!-- Menu Bar -->
+            <Menu DockPanel.Dock="Top" Background="#34495e" Foreground="#ecf0f1" FontFamily="{StaticResource ModernSansLightFont}">
+                <MenuItem Header="File">
+                    <MenuItem Header="Open" Click="Open_Click"/>
+                    <MenuItem Header="Save" Click="Save_Click"/>
+                    <Separator/>
+                    <MenuItem Header="Exit" Click="Exit_Click"/>
+                </MenuItem>
+                <MenuItem Header="Edit">
+                    <MenuItem Header="Cut" Click="Cut_Click"/>
+                    <MenuItem Header="Copy" Click="Copy_Click"/>
+                    <MenuItem Header="Paste" Click="Paste_Click"/>
+                </MenuItem>
+                <MenuItem Header="Help">
+                    <MenuItem Header="About" Click="About_Click"/>
+                </MenuItem>
+            </Menu>
 
-            <!-- Log ListBox -->
-            <ListBox Name="logListBox" Grid.Column="0" Background="#34495e" Foreground="#ecf0f1"
-                     SelectionChanged="LogListBox_SelectionChanged" Margin="10"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="70*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-            <!-- Details TextBox -->
-            <TextBox Name="detailsTextBox" Grid.Column="1" Background="#34495e" Foreground="#ecf0f1"
-                     Margin="10" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" IsReadOnly="True" Style="{StaticResource ModernTextBox}"/>
-        </Grid>
+                <!-- Log ListBox -->
+                <ListBox Name="logListBox" Grid.Column="0" Background="#34495e" Foreground="#ecf0f1"
+                         SelectionChanged="LogListBox_SelectionChanged" Margin="10"/>
+
+                <!-- Details TextBox -->
+                <TextBox Name="detailsTextBox" Grid.Column="1" Background="#2c3e50" Foreground="#ecf0f1"
+                         Margin="10" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" IsReadOnly="True" Style="{StaticResource ModernTextBox}"/>
+            </Grid>
+        </DockPanel>
     </Border>
 </Window>

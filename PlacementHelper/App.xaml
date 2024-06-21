@@ -3,13 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <!-- Modern TextBox Style with Rounded Corners and Gradient -->
+        <!-- Include ModernSans-Light Font -->
+        <FontFamily x:Key="ModernSansLightFont">/Fonts/#Modern Sans</FontFamily>
+
+        <!-- Modern TextBox Style with Glassy Effect -->
         <Style x:Key="ModernTextBox" TargetType="TextBox">
+            <Setter Property="FontFamily" Value="{StaticResource ModernSansLightFont}"/>
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="#2c3e50" Offset="0.0"/>
-                        <GradientStop Color="#1f2c39" Offset="1.0"/>
+                        <GradientStop Color="#1f2c39" Offset="0.0"/>
+                        <!-- Darker left side -->
+                        <GradientStop Color="#2e4053" Offset="0.5"/>
+                        <GradientStop Color="#34495e" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
@@ -19,25 +25,56 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TextBox">
-                        <Border Background="{TemplateBinding Background}" 
-                                CornerRadius="5">
-                            <ScrollViewer Margin="0" 
-                                          x:Name="PART_ContentHost" 
-                                          HorizontalScrollBarVisibility="Hidden" 
-                                          VerticalScrollBarVisibility="Hidden"/>
-                        </Border>
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}" CornerRadius="5"/>
+                            <Border Background="#20FFFFFF" CornerRadius="5"/>
+                            <!-- Semi-transparent white overlay -->
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
 
-        <!-- Modern Button Style with Rounded Corners and Gradient -->
+        <!-- Modern DatePicker Style with Glassy Effect -->
+        <Style x:Key="ModernDatePicker" TargetType="DatePicker">
+            <Setter Property="FontFamily" Value="{StaticResource ModernSansLightFont}"/>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#1f2c39" Offset="0.0"/>
+                        <!-- Darker left side -->
+                        <GradientStop Color="#2e4053" Offset="0.5"/>
+                        <GradientStop Color="#34495e" Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="#ecf0f1"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="DatePicker">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}" CornerRadius="5"/>
+                            <Border Background="#20FFFFFF" CornerRadius="5"/>
+                            <!-- Semi-transparent white overlay -->
+                            <ContentPresenter />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Modern Button Style with Glassy Effect and Hover Effect -->
         <Style x:Key="ModernButton" TargetType="Button">
+            <Setter Property="FontFamily" Value="{StaticResource ModernSansLightFont}"/>
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                         <GradientStop Color="#16a085" Offset="0.0"/>
-                        <GradientStop Color="#0f7a67" Offset="1.0"/>
+                        <GradientStop Color="#17a589" Offset="0.5"/>
+                        <GradientStop Color="#1abc9c" Offset="1.0"/>
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
@@ -49,11 +86,10 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" 
-                                CornerRadius="5">
-                            <ContentPresenter HorizontalAlignment="Center" 
-                                              VerticalAlignment="Center"/>
-                        </Border>
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}" CornerRadius="5"/>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -63,7 +99,8 @@
                         <Setter.Value>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                 <GradientStop Color="#e67e22" Offset="0.0"/>
-                                <GradientStop Color="#d35400" Offset="1.0"/>
+                                <GradientStop Color="#e98b39" Offset="0.5"/>
+                                <GradientStop Color="#e74c3c" Offset="1.0"/>
                             </LinearGradientBrush>
                         </Setter.Value>
                     </Setter>

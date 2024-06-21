@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -46,6 +45,41 @@ namespace PlacementHelper
                                   $"Additional Notes: {log.AdditionalNotes}\r\n" +
                                   $"Feedback Received: {log.FeedbackReceived}\r\n" +
                                   $"Goals for Next Week: {log.GoalsForNextWeek}";
+        }
+
+        private void Open_Click(object sender, RoutedEventArgs e)
+        {
+            // Implement open functionality
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            // Implement save functionality
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Cut_Click(object sender, RoutedEventArgs e)
+        {
+            // Implement cut functionality
+        }
+
+        private void Copy_Click(object sender, RoutedEventArgs e)
+        {
+            // Implement copy functionality
+        }
+
+        private void Paste_Click(object sender, RoutedEventArgs e)
+        {
+            // Implement paste functionality
+        }
+
+        private void About_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Browse Logs Application\nVersion 1.0", "About");
         }
     }
 }

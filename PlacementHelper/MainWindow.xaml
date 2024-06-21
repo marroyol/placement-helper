@@ -25,37 +25,37 @@
             <!-- Content Panel -->
             <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
                 <StackPanel Margin="10">
-                    <TextBlock Text="Week Number:" Foreground="#ecf0f1" Margin="0,10,0,5"/>
+                    <TextBlock Text="Week Number:" Foreground="#ecf0f1" Margin="0,10,0,5" FontFamily="{StaticResource ModernSansLightFont}"/>
                     <TextBox Name="weekNumberTextBox" Height="30" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}"/>
 
-                    <TextBlock Text="Start Date:" Foreground="#ecf0f1" Margin="0,10,0,5"/>
-                    <DatePicker Name="startDatePicker" Height="30" Margin="0,0,0,10" Background="#2c3e50" Foreground="#ecf0f1"/>
+                    <TextBlock Text="Start Date:" Foreground="#ecf0f1" Margin="0,10,0,5" FontFamily="{StaticResource ModernSansLightFont}"/>
+                    <DatePicker Name="startDatePicker" Height="30" Margin="0,0,0,10" Style="{StaticResource ModernDatePicker}"/>
 
-                    <TextBlock Text="Activity Description:" Foreground="#ecf0f1" Margin="0,10,0,5"/>
+                    <TextBlock Text="Activity Description:" Foreground="#ecf0f1" Margin="0,10,0,5" FontFamily="{StaticResource ModernSansLightFont}"/>
                     <TextBox Name="activityDescriptionTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
-                    <TextBlock Text="Duration (hours):" Foreground="#ecf0f1" Margin="0,10,0,5"/>
+                    <TextBlock Text="Duration (hours):" Foreground="#ecf0f1" Margin="0,10,0,5" FontFamily="{StaticResource ModernSansLightFont}"/>
                     <TextBox Name="durationTextBox" Height="30" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}"/>
 
-                    <TextBlock Text="Describe:" Foreground="#ecf0f1" Margin="0,10,0,5"/>
+                    <TextBlock Text="Describe:" Foreground="#ecf0f1" Margin="0,10,0,5" FontFamily="{StaticResource ModernSansLightFont}"/>
                     <TextBox Name="describeTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
-                    <TextBlock Text="Interpret:" Foreground="#ecf0f1" Margin="0,10,0,5"/>
+                    <TextBlock Text="Interpret:" Foreground="#ecf0f1" Margin="0,10,0,5" FontFamily="{StaticResource ModernSansLightFont}"/>
                     <TextBox Name="interpretTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
-                    <TextBlock Text="Evaluate:" Foreground="#ecf0f1" Margin="0,10,0,5"/>
+                    <TextBlock Text="Evaluate:" Foreground="#ecf0f1" Margin="0,10,0,5" FontFamily="{StaticResource ModernSansLightFont}"/>
                     <TextBox Name="evaluateTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
-                    <TextBlock Text="Plan:" Foreground="#ecf0f1" Margin="0,10,0,5"/>
+                    <TextBlock Text="Plan:" Foreground="#ecf0f1" Margin="0,10,0,5" FontFamily="{StaticResource ModernSansLightFont}"/>
                     <TextBox Name="planTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
-                    <TextBlock Text="Additional Notes:" Foreground="#ecf0f1" Margin="0,10,0,5"/>
+                    <TextBlock Text="Additional Notes:" Foreground="#ecf0f1" Margin="0,10,0,5" FontFamily="{StaticResource ModernSansLightFont}"/>
                     <TextBox Name="additionalNotesTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
-                    <TextBlock Text="Feedback Received:" Foreground="#ecf0f1" Margin="0,10,0,5"/>
+                    <TextBlock Text="Feedback Received:" Foreground="#ecf0f1" Margin="0,10,0,5" FontFamily="{StaticResource ModernSansLightFont}"/>
                     <TextBox Name="feedbackReceivedTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
-                    <TextBlock Text="Goals for Next Week:" Foreground="#ecf0f1" Margin="0,10,0,5"/>
+                    <TextBlock Text="Goals for Next Week:" Foreground="#ecf0f1" Margin="0,10,0,5" FontFamily="{StaticResource ModernSansLightFont}"/>
                     <TextBox Name="goalsForNextWeekTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
                     <!-- Buttons -->

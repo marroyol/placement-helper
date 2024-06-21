@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows;
 using System.Windows.Input;
 using Newtonsoft.Json;
-using System.IO;
 
 namespace PlacementHelper
 {
