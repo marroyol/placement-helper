@@ -7,15 +7,17 @@
         <SolidColorBrush x:Key="BackgroundColor">#1E1E1E</SolidColorBrush>
         <SolidColorBrush x:Key="PrimaryTextColor">#F3F3F3</SolidColorBrush>
         <SolidColorBrush x:Key="AccentColor">#3A3F44</SolidColorBrush>
-        <SolidColorBrush x:Key="ButtonHoverColor">#50575D</SolidColorBrush>
+        <SolidColorBrush x:Key="ButtonHoverColor">#E74C3C</SolidColorBrush>
         <SolidColorBrush x:Key="ButtonBackgroundColor">#2D2D30</SolidColorBrush>
+        <SolidColorBrush x:Key="ButtonNormalColor">#3A3A5F</SolidColorBrush>
+        <!-- Changed to a valid 6-character hex code -->
 
-        <!-- Segoe UI Font -->
-        <FontFamily x:Key="SegoeUI">Segoe UI</FontFamily>
+        <!-- Inter Font -->
+        <FontFamily x:Key="InterFont">/Fonts/Inter.ttc#Inter</FontFamily>
 
         <!-- Dark Mode TextBox Style with Fluent Design -->
         <Style x:Key="ModernTextBox" TargetType="TextBox">
-            <Setter Property="FontFamily" Value="{StaticResource SegoeUI}"/>
+            <Setter Property="FontFamily" Value="{StaticResource InterFont}"/>
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -42,7 +44,7 @@
 
         <!-- Dark Mode DatePicker Style with Fluent Design -->
         <Style x:Key="ModernDatePicker" TargetType="DatePicker">
-            <Setter Property="FontFamily" Value="{StaticResource SegoeUI}"/>
+            <Setter Property="FontFamily" Value="{StaticResource InterFont}"/>
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -69,7 +71,7 @@
 
         <!-- Dark Mode Button Style with Fluent Design -->
         <Style x:Key="ModernButton" TargetType="Button">
-            <Setter Property="FontFamily" Value="{StaticResource SegoeUI}"/>
+            <Setter Property="FontFamily" Value="{StaticResource InterFont}"/>
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
