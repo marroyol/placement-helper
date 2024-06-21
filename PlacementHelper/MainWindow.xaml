@@ -1,12 +1,13 @@
 ﻿<Window x:Class="PlacementHelper.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Placement Helper" Height="600" Width="800" Background="{StaticResource BackgroundColor}"
+        Title="Placement Helper" Height="600" Width="800" 
+        Background="{StaticResource PrimaryBackgroundColor}"
         WindowStyle="None" AllowsTransparency="True">
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0" ResizeBorderThickness="5" CornerRadius="10"/>
     </WindowChrome.WindowChrome>
-    <Border CornerRadius="10" Background="{StaticResource BackgroundColor}">
+    <Border CornerRadius="10" Background="{StaticResource PrimaryBackgroundColor}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -14,11 +15,12 @@
             </Grid.RowDefinitions>
 
             <!-- Custom Title Bar -->
-            <DockPanel Grid.Row="0" Background="{StaticResource AccentColor}" Height="30" VerticalAlignment="Top" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+            <DockPanel Grid.Row="0" Background="{StaticResource SecondaryBackgroundColor}" Height="30" VerticalAlignment="Top" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+                <TextBlock Text="Placement Helper" Foreground="{StaticResource PrimaryTextColor}" VerticalAlignment="Center" Margin="10,0,0,0"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Content="_" Click="MinimizeButton_Click" Background="{StaticResource AccentColor}" Foreground="#FFFFFF" BorderThickness="0" Width="30" Height="30"/>
-                    <Button Content="□" Click="MaximizeButton_Click" Background="{StaticResource AccentColor}" Foreground="#FFFFFF" BorderThickness="0" Width="30" Height="30"/>
-                    <Button Content="X" Click="CloseButton_Click" Background="#E74C3C" Foreground="#FFFFFF" BorderThickness="0" Width="30" Height="30"/>
+                    <Button Content="_" Click="MinimizeButton_Click" Style="{StaticResource ModernButton}" Width="30" Height="30"/>
+                    <Button Content="□" Click="MaximizeButton_Click" Style="{StaticResource ModernButton}" Width="30" Height="30"/>
+                    <Button Content="X" Click="CloseButton_Click" Style="{StaticResource ModernButton}" Width="30" Height="30" Background="{StaticResource ErrorColor}"/>
                 </StackPanel>
             </DockPanel>
 
@@ -26,37 +28,37 @@
             <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
                 <StackPanel Margin="10">
                     <TextBlock Text="Week Number:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
-                    <TextBox Name="weekNumberTextBox" Height="30" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}"/>
+                    <TextBox x:Name="weekNumberTextBox" Height="30" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}"/>
 
                     <TextBlock Text="Start Date:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
-                    <DatePicker Name="startDatePicker" Height="30" Margin="0,0,0,10" Style="{StaticResource ModernDatePicker}"/>
+                    <DatePicker x:Name="startDatePicker" Height="30" Margin="0,0,0,10" Style="{StaticResource ModernDatePicker}"/>
 
                     <TextBlock Text="Activity Description:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
-                    <TextBox Name="activityDescriptionTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
+                    <TextBox x:Name="activityDescriptionTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
                     <TextBlock Text="Duration (hours):" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
-                    <TextBox Name="durationTextBox" Height="30" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}"/>
+                    <TextBox x:Name="durationTextBox" Height="30" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}"/>
 
                     <TextBlock Text="Describe:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
-                    <TextBox Name="describeTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
+                    <TextBox x:Name="describeTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
                     <TextBlock Text="Interpret:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
-                    <TextBox Name="interpretTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
+                    <TextBox x:Name="interpretTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
                     <TextBlock Text="Evaluate:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
-                    <TextBox Name="evaluateTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
+                    <TextBox x:Name="evaluateTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
                     <TextBlock Text="Plan:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
-                    <TextBox Name="planTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
+                    <TextBox x:Name="planTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
                     <TextBlock Text="Additional Notes:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
-                    <TextBox Name="additionalNotesTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
+                    <TextBox x:Name="additionalNotesTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
                     <TextBlock Text="Feedback Received:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
-                    <TextBox Name="feedbackReceivedTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
+                    <TextBox x:Name="feedbackReceivedTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
                     <TextBlock Text="Goals for Next Week:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
-                    <TextBox Name="goalsForNextWeekTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
+                    <TextBox x:Name="goalsForNextWeekTextBox" Height="60" Margin="0,0,0,10" TextWrapping="Wrap" Style="{StaticResource ModernTextBox}"/>
 
                     <!-- Buttons -->
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">

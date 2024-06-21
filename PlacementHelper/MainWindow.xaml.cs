@@ -33,11 +33,6 @@ namespace PlacementHelper
             browseLogsWindow.ShowDialog();
         }
 
-        private void Exit_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
         private bool ValidateInput()
         {
             if (string.IsNullOrWhiteSpace(weekNumberTextBox.Text) ||

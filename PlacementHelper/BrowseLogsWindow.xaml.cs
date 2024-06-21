@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace PlacementHelper
 {
@@ -47,14 +49,39 @@ namespace PlacementHelper
                                   $"Goals for Next Week: {log.GoalsForNextWeek}";
         }
 
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ClickCount == 2)
+            {
+                MaximizeButton_Click(sender, e);
+            }
+            else
+            {
+                DragMove();
+            }
+        }
+
         private void Open_Click(object sender, RoutedEventArgs e)
         {
             // Implement open functionality
+            MessageBox.Show("Open functionality not implemented yet.");
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             // Implement save functionality
+            MessageBox.Show("Save functionality not implemented yet.");
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -65,16 +92,40 @@ namespace PlacementHelper
         private void Cut_Click(object sender, RoutedEventArgs e)
         {
             // Implement cut functionality
+            MessageBox.Show("Cut functionality not implemented yet.");
         }
 
         private void Copy_Click(object sender, RoutedEventArgs e)
         {
             // Implement copy functionality
+            MessageBox.Show("Copy functionality not implemented yet.");
         }
 
         private void Paste_Click(object sender, RoutedEventArgs e)
         {
             // Implement paste functionality
+            MessageBox.Show("Paste functionality not implemented yet.");
+        }
+        private void UpdateMaximizeButtonIcon()
+        {
+            var maximizeButton = this.FindName("MaximizeButton") as Button;
+            if (maximizeButton != null)
+            {
+                maximizeButton.Content = (this.WindowState == WindowState.Maximized) ? "\uE923" : "\uE739";
+            }
+        }
+
+        private void MaximizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.WindowState == WindowState.Maximized)
+            {
+                this.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = WindowState.Maximized;
+            }
+            UpdateMaximizeButtonIcon();
         }
 
         private void About_Click(object sender, RoutedEventArgs e)
