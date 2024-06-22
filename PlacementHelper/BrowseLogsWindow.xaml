@@ -13,9 +13,9 @@
             <DockPanel DockPanel.Dock="Top" Background="{StaticResource SecondaryBackgroundColor}" Height="30" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
                 <TextBlock Text="Browse Logs" Foreground="{StaticResource PrimaryTextColor}" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="{StaticResource InterFont}"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Content="&#xE949;" FontFamily="Segoe MDL2 Assets" Click="MinimizeButton_Click" Style="{StaticResource ModernButton}" Width="46" Height="30"/>
-                    <Button Content="&#xE739;" FontFamily="Segoe MDL2 Assets" Click="MaximizeButton_Click" Style="{StaticResource ModernButton}" Width="46" Height="30"/>
-                    <Button Content="&#xE106;" FontFamily="Segoe MDL2 Assets" Click="CloseButton_Click" Style="{StaticResource ModernButton}" Width="46" Height="30" Background="{StaticResource ErrorColor}"/>
+                    <Button Content="&#xE949;" Click="MinimizeButton_Click" Style="{StaticResource WindowButtonStyle}"/>
+                    <Button Content="&#xE739;" Click="MaximizeButton_Click" Style="{StaticResource WindowButtonStyle}"/>
+                    <Button Content="&#xE106;" Click="CloseButton_Click" Style="{StaticResource CloseButtonStyle}"/>
                 </StackPanel>
             </DockPanel>
             <!-- Menu Bar -->

@@ -18,9 +18,9 @@
             <DockPanel Grid.Row="0" Background="{StaticResource SecondaryBackgroundColor}" Height="30" VerticalAlignment="Top" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
                 <TextBlock Text="Placement Helper" Foreground="{StaticResource PrimaryTextColor}" VerticalAlignment="Center" Margin="10,0,0,0"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Content="_" Click="MinimizeButton_Click" Style="{StaticResource ModernButton}" Width="30" Height="30"/>
-                    <Button Content="□" Click="MaximizeButton_Click" Style="{StaticResource ModernButton}" Width="30" Height="30"/>
-                    <Button Content="X" Click="CloseButton_Click" Style="{StaticResource ModernButton}" Width="30" Height="30" Background="{StaticResource ErrorColor}"/>
+                    <Button Content="&#xE949;" Click="MinimizeButton_Click" Style="{StaticResource WindowButtonStyle}" FontSize="12"/>
+                    <Button Content="&#xE739;" Click="MaximizeButton_Click" Style="{StaticResource WindowButtonStyle}" FontSize="12"/>
+                    <Button Content="&#xE106;" Click="CloseButton_Click" Style="{StaticResource CloseButtonStyle}" FontSize="12"/>
                 </StackPanel>
             </DockPanel>
 
