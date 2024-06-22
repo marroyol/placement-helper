@@ -40,7 +40,7 @@ namespace PlacementHelper
                 if (textBox.Text == GetPlaceholderText(textBox))
                 {
                     textBox.Text = string.Empty;
-                    textBox.Foreground = Brushes.White; // Set to your primary text color
+                    textBox.Foreground = Brushes.White; 
                 }
             }
         }
@@ -58,11 +58,11 @@ namespace PlacementHelper
             if (string.IsNullOrEmpty(textBox.Text))
             {
                 textBox.Text = placeholderText;
-                textBox.Foreground = Brushes.Gray; // Set to a muted color
+                textBox.Foreground = Brushes.Gray; 
             }
             else if (textBox.Text != placeholderText)
             {
-                textBox.Foreground = Brushes.White; // Set to your primary text color
+                textBox.Foreground = Brushes.White;
             }
         }
     }

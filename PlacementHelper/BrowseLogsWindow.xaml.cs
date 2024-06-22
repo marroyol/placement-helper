@@ -97,7 +97,7 @@ namespace PlacementHelper
                         logs.Clear();
                         logs.AddRange(loadedLogs);
                         PopulateLogList();
-                        mainWindow.SaveLogs(); // Update the main log file
+                        mainWindow.SaveLogs(); 
                         MessageBox.Show("Logs loaded successfully.", "Load Successful", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
