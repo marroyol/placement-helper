@@ -29,7 +29,7 @@ namespace PlacementHelper
 
         private void BrowseButton_Click(object sender, RoutedEventArgs e)
         {
-            BrowseLogsWindow browseLogsWindow = new BrowseLogsWindow(logs, this);
+            BrowseLogsWindow browseLogsWindow = new BrowseLogsWindow(ref logs, this);
             browseLogsWindow.ShowDialog();
         }
 

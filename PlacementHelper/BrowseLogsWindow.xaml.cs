@@ -1,8 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.IO;
+using Newtonsoft.Json;
+using Microsoft.Win32;
 
 namespace PlacementHelper
 {
@@ -11,7 +15,7 @@ namespace PlacementHelper
         private List<WeeklyLog> logs;
         private MainWindow mainWindow;
 
-        public BrowseLogsWindow(List<WeeklyLog> logs, MainWindow mainWindow)
+        public BrowseLogsWindow(ref List<WeeklyLog> logs, MainWindow mainWindow)
         {
             InitializeComponent();
             this.logs = logs;
@@ -75,14 +79,61 @@ namespace PlacementHelper
 
         private void Open_Click(object sender, RoutedEventArgs e)
         {
-            // Implement open functionality
-            MessageBox.Show("Open functionality not implemented yet.");
+            Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog
+            {
+                Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*",
+                Title = "Open Logs"
+            };
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                try
+                {
+                    string json = File.ReadAllText(openFileDialog.FileName);
+                    List<WeeklyLog> loadedLogs = JsonConvert.DeserializeObject<List<WeeklyLog>>(json);
+
+                    if (loadedLogs != null && loadedLogs.Count > 0)
+                    {
+                        logs.Clear();
+                        logs.AddRange(loadedLogs);
+                        PopulateLogList();
+                        mainWindow.SaveLogs(); // Update the main log file
+                        MessageBox.Show("Logs loaded successfully.", "Load Successful", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("The selected file doesn't contain any valid logs.", "Load Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred while loading: {ex.Message}", "Load Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            // Implement save functionality
-            MessageBox.Show("Save functionality not implemented yet.");
+            Microsoft.Win32.SaveFileDialog saveFileDialog = new Microsoft.Win32.SaveFileDialog
+            {
+                Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*",
+                DefaultExt = "json",
+                Title = "Save Logs"
+            };
+
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                try
+                {
+                    string json = JsonConvert.SerializeObject(logs, Formatting.Indented);
+                    File.WriteAllText(saveFileDialog.FileName, json);
+                    MessageBox.Show("Logs saved successfully.", "Save Successful", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"An error occurred while saving: {ex.Message}", "Save Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -109,14 +160,19 @@ namespace PlacementHelper
         {
             if (logListBox.SelectedIndex >= 0)
             {
-                WeeklyLog selectedLog = logs[logListBox.SelectedIndex];
-                string logText = FormatLogForClipboard(selectedLog);
-                Clipboard.SetText(logText);
-                logs.RemoveAt(logListBox.SelectedIndex);
-                mainWindow.SaveLogs();
-                PopulateLogList();
-                detailsTextBox.Clear();
-                MessageBox.Show("Log details cut to clipboard and removed from the list.", "Cut Successful", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBoxResult result = MessageBox.Show("Are you sure you want to cut this log? This action will remove the log from the list and copy it to the clipboard.", "Confirm Cut", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    WeeklyLog selectedLog = logs[logListBox.SelectedIndex];
+                    string logText = FormatLogForClipboard(selectedLog);
+                    Clipboard.SetText(logText);
+                    logs.RemoveAt(logListBox.SelectedIndex);
+                    mainWindow.SaveLogs();
+                    PopulateLogList();
+                    detailsTextBox.Clear();
+                    MessageBox.Show("Log details cut to clipboard and removed from the list.", "Cut Successful", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
             }
             else
             {
