@@ -29,7 +29,7 @@ namespace PlacementHelper
 
         private void BrowseButton_Click(object sender, RoutedEventArgs e)
         {
-            BrowseLogsWindow browseLogsWindow = new BrowseLogsWindow(logs);
+            BrowseLogsWindow browseLogsWindow = new BrowseLogsWindow(logs, this);
             browseLogsWindow.ShowDialog();
         }
 
@@ -74,8 +74,7 @@ namespace PlacementHelper
             MessageBox.Show("Log saved successfully!");
             ClearForm();
         }
-
-        private void SaveLogs()
+        public void SaveLogs()
         {
             string json = JsonConvert.SerializeObject(logs, Formatting.Indented);
             File.WriteAllText(LogFilePath, json);

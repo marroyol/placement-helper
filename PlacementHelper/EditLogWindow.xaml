@@ -1,0 +1,58 @@
+﻿<Window x:Class="PlacementHelper.EditLogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Edit Log" Height="600" Width="460" 
+        Background="{StaticResource PrimaryBackgroundColor}"
+        WindowStyle="None" AllowsTransparency="True">
+    <Border CornerRadius="10" Background="{StaticResource PrimaryBackgroundColor}">
+        <DockPanel>
+            <!-- Title Bar -->
+            <DockPanel DockPanel.Dock="Top" Background="{StaticResource SecondaryBackgroundColor}" Height="30" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
+                <TextBlock Text="Edit Log" Foreground="{StaticResource PrimaryTextColor}" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="{StaticResource InterFont}"/>
+                <Button Content="&#xE106;" Click="CloseButton_Click" Style="{StaticResource CloseButtonStyle}" HorizontalAlignment="Right"/>
+            </DockPanel>
+
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="10">
+                    <TextBlock Text="Week Number:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
+                    <TextBox x:Name="weekNumberTextBox" Style="{StaticResource ModernTextBox}"/>
+
+                    <TextBlock Text="Start Date:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
+                    <DatePicker x:Name="startDatePicker" Style="{StaticResource ModernDatePicker}"/>
+
+                    <TextBlock Text="Activity Description:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
+                    <TextBox x:Name="activityDescriptionTextBox" Style="{StaticResource ModernTextBox}" Height="60"/>
+
+                    <TextBlock Text="Duration (hours):" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
+                    <TextBox x:Name="durationTextBox" Style="{StaticResource ModernTextBox}"/>
+
+                    <TextBlock Text="Describe:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
+                    <TextBox x:Name="describeTextBox" Style="{StaticResource ModernTextBox}" Height="60"/>
+
+                    <TextBlock Text="Interpret:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
+                    <TextBox x:Name="interpretTextBox" Style="{StaticResource ModernTextBox}" Height="60"/>
+
+                    <TextBlock Text="Evaluate:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
+                    <TextBox x:Name="evaluateTextBox" Style="{StaticResource ModernTextBox}" Height="60"/>
+
+                    <TextBlock Text="Plan:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
+                    <TextBox x:Name="planTextBox" Style="{StaticResource ModernTextBox}" Height="60"/>
+
+                    <TextBlock Text="Additional Notes:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
+                    <TextBox x:Name="additionalNotesTextBox" Style="{StaticResource ModernTextBox}" Height="60"/>
+
+                    <TextBlock Text="Feedback Received:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
+                    <TextBox x:Name="feedbackReceivedTextBox" Style="{StaticResource ModernTextBox}" Height="60"/>
+
+                    <TextBlock Text="Goals for Next Week:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
+                    <TextBox x:Name="goalsForNextWeekTextBox" Style="{StaticResource ModernTextBox}" Height="60"/>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+                        <Button Content="Save" Click="SaveButton_Click" Style="{StaticResource ModernLargeButton}" Width="80" Margin="0,0,10,0"/>
+                        <Button Content="Cancel" Click="CancelButton_Click" Style="{StaticResource ModernLargeButton}" Width="80"/>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </DockPanel>
+    </Border>
+</Window>
