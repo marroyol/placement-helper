@@ -35,40 +35,31 @@
                     <DatePicker x:Name="startDatePicker" Height="30" Width="400" HorizontalAlignment="Left" Margin="0,0,0,10" Style="{StaticResource ModernDatePicker}"/>
 
                     <TextBlock Text="Activity Description:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
-                    <TextBox x:Name="activityDescriptionTextBox" Height="60" Width="400" HorizontalAlignment="Left" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}"
-         local:PlaceholderTextBehaviour.PlaceholderText="Briefly describe the main activity or task"/>
+                    <TextBox x:Name="activityDescriptionTextBox" Height="60" Width="400" HorizontalAlignment="Left" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}" local:PlaceholderTextBehaviour.PlaceholderText="Briefly describe the main activity or task"/>
 
                     <TextBlock Text="Duration (hours):" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
-                    <TextBox x:Name="durationTextBox" Height="30" Width="400" HorizontalAlignment="Left" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}"
-         local:PlaceholderTextBehaviour.PlaceholderText="Approximate hours spent on this activity"/>
+                    <TextBox x:Name="durationTextBox" Height="30" Width="400" HorizontalAlignment="Left" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}" local:PlaceholderTextBehaviour.PlaceholderText="Approximate hours spent on this activity"/>
 
                     <TextBlock Text="Describe:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
-                    <TextBox x:Name="describeTextBox" Height="60" Width="400" HorizontalAlignment="Left" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}"
-         local:PlaceholderTextBehaviour.PlaceholderText="Detail the tasks and context. What did you do, read, see, hear?"/>
+                    <TextBox x:Name="describeTextBox" Height="60" Width="400" HorizontalAlignment="Left" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}" local:PlaceholderTextBehaviour.PlaceholderText="Detail the tasks and context. What did you do, read, see, hear?"/>
 
                     <TextBlock Text="Interpret:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
-                    <TextBox x:Name="interpretTextBox" Height="60" Width="400" HorizontalAlignment="Left" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}"
-         local:PlaceholderTextBehaviour.PlaceholderText="Insights gained, connections to previous knowledge or experiences"/>
+                    <TextBox x:Name="interpretTextBox" Height="60" Width="400" HorizontalAlignment="Left" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}" local:PlaceholderTextBehaviour.PlaceholderText="Insights gained, connections to previous knowledge or experiences"/>
 
                     <TextBlock Text="Evaluate:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
-                    <TextBox x:Name="evaluateTextBox" Height="60" Width="400" HorizontalAlignment="Left" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}"
-         local:PlaceholderTextBehaviour.PlaceholderText="Usefulness of the experience, challenges and successes"/>
+                    <TextBox x:Name="evaluateTextBox" Height="60" Width="400" HorizontalAlignment="Left" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}" local:PlaceholderTextBehaviour.PlaceholderText="Usefulness of the experience, challenges and successes"/>
 
                     <TextBlock Text="Plan:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
-                    <TextBox x:Name="planTextBox" Height="60" Width="400" HorizontalAlignment="Left" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}"
-         local:PlaceholderTextBehaviour.PlaceholderText="Future application, possible improvements for similar tasks"/>
+                    <TextBox x:Name="planTextBox" Height="60" Width="400" HorizontalAlignment="Left" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}" local:PlaceholderTextBehaviour.PlaceholderText="Future application, possible improvements for similar tasks"/>
 
                     <TextBlock Text="Additional Notes:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
-                    <TextBox x:Name="additionalNotesTextBox" Height="60" Width="400" HorizontalAlignment="Left" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}"
-         local:PlaceholderTextBehaviour.PlaceholderText="Any other thoughts, feelings, or observations about the week's experience"/>
+                    <TextBox x:Name="additionalNotesTextBox" Height="60" Width="400" HorizontalAlignment="Left" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}" local:PlaceholderTextBehaviour.PlaceholderText="Any other thoughts, feelings, or observations about the week's experience"/>
 
                     <TextBlock Text="Feedback Received:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
-                    <TextBox x:Name="feedbackReceivedTextBox" Height="60" Width="400" HorizontalAlignment="Left" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}"
-         local:PlaceholderTextBehaviour.PlaceholderText="Note any feedback from supervisors or colleagues and its impact"/>
+                    <TextBox x:Name="feedbackReceivedTextBox" Height="60" Width="400" HorizontalAlignment="Left" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}" local:PlaceholderTextBehaviour.PlaceholderText="Note any feedback from supervisors or colleagues and its impact"/>
 
                     <TextBlock Text="Goals for Next Week:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
-                    <TextBox x:Name="goalsForNextWeekTextBox" Height="60" Width="400" HorizontalAlignment="Left" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}"
-         local:PlaceholderTextBehaviour.PlaceholderText="Outline your aims or objectives for the following week"/>
+                    <TextBox x:Name="goalsForNextWeekTextBox" Height="60" Width="400" HorizontalAlignment="Left" Margin="0,0,0,10" Style="{StaticResource ModernTextBox}" local:PlaceholderTextBehaviour.PlaceholderText="Outline your aims or objectives for the following week"/>
 
                     <!-- Buttons -->
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
