@@ -341,7 +341,7 @@ namespace PlacementHelper
 
         private void About_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Browse Logs Application\nVersion 1.0", "About");
+            MessageBox.Show("Placement Helper\nVersion 1.0", "About");
         }
     }
 }

@@ -19,44 +19,44 @@
                 </StackPanel>
             </DockPanel>
             <!-- Menu Bar -->
-            <Menu DockPanel.Dock="Top" Background="{StaticResource SecondaryBackgroundColor}" Foreground="{StaticResource PrimaryTextColor}" FontFamily="{StaticResource InterFont}">
-                <MenuItem Header="File">
-                    <MenuItem Header="Open" Click="Open_Click" InputGestureText="Ctrl+O">
+            <Menu DockPanel.Dock="Top" Style="{StaticResource DarkThemeMenu}">
+                <MenuItem Header="File" Style="{StaticResource DarkThemeMenuItem}">
+                    <MenuItem Header="Open" Click="Open_Click" InputGestureText="Ctrl+O" Style="{StaticResource DarkThemeMenuItem}">
                         <MenuItem.Icon>
                             <TextBlock Text="&#xE8E5;" FontFamily="Segoe MDL2 Assets"/>
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="Save" Click="Save_Click" InputGestureText="Ctrl+S">
+                    <MenuItem Header="Save" Click="Save_Click" InputGestureText="Ctrl+S" Style="{StaticResource DarkThemeMenuItem}">
                         <MenuItem.Icon>
                             <TextBlock Text="&#xE74E;" FontFamily="Segoe MDL2 Assets"/>
                         </MenuItem.Icon>
                     </MenuItem>
                     <Separator/>
-                    <MenuItem Header="Exit" Click="Exit_Click" InputGestureText="Alt+F4">
+                    <MenuItem Header="Exit" Click="Exit_Click" InputGestureText="Alt+F4" Style="{StaticResource DarkThemeMenuItem}">
                         <MenuItem.Icon>
                             <TextBlock Text="&#xE7E8;" FontFamily="Segoe MDL2 Assets"/>
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
-                <MenuItem Header="Edit">
-                    <MenuItem Header="Cut" Click="Cut_Click" InputGestureText="Ctrl+X">
+                <MenuItem Header="Edit" Style="{StaticResource DarkThemeMenuItem}">
+                    <MenuItem Header="Cut" Click="Cut_Click" InputGestureText="Ctrl+X" Style="{StaticResource DarkThemeMenuItem}">
                         <MenuItem.Icon>
                             <TextBlock Text="&#xE8C6;" FontFamily="Segoe MDL2 Assets"/>
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="Copy" Click="Copy_Click" InputGestureText="Ctrl+C">
+                    <MenuItem Header="Copy" Click="Copy_Click" InputGestureText="Ctrl+C" Style="{StaticResource DarkThemeMenuItem}">
                         <MenuItem.Icon>
                             <TextBlock Text="&#xE8C8;" FontFamily="Segoe MDL2 Assets"/>
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="Paste" Click="Paste_Click" InputGestureText="Ctrl+V">
+                    <MenuItem Header="Paste" Click="Paste_Click" InputGestureText="Ctrl+V" Style="{StaticResource DarkThemeMenuItem}">
                         <MenuItem.Icon>
                             <TextBlock Text="&#xE77F;" FontFamily="Segoe MDL2 Assets"/>
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
-                <MenuItem Header="Help">
-                    <MenuItem Header="About" Click="About_Click">
+                <MenuItem Header="Help" Style="{StaticResource DarkThemeMenuItem}">
+                    <MenuItem Header="About" Click="About_Click" Style="{StaticResource DarkThemeMenuItem}">
                         <MenuItem.Icon>
                             <TextBlock Text="&#xE946;" FontFamily="Segoe MDL2 Assets"/>
                         </MenuItem.Icon>
