@@ -22,4 +22,10 @@
     <Resource Include="Fonts\ModernSans-Light.otf" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="PlaceholderTextBehaviour.cs">
+      <Generator>MSBuild:Compile</Generator>
+    </Compile>
+  </ItemGroup>
+
 </Project>
