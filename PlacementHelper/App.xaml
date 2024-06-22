@@ -14,6 +14,9 @@
         <SolidColorBrush x:Key="ButtonHoverColor">#505050</SolidColorBrush>
         <SolidColorBrush x:Key="ErrorColor">#E74C3C</SolidColorBrush>
         <SolidColorBrush x:Key="CloseButtonHoverColor">#FF4C4C</SolidColorBrush>
+        <SolidColorBrush x:Key="ModernButtonBackgroundColor">#313178</SolidColorBrush>
+        <SolidColorBrush x:Key="ModernButtonHoverColor">#4e4e94</SolidColorBrush>
+        <SolidColorBrush x:Key="ModernButtonPressedColor">#6b6bda</SolidColorBrush>
 
         <!-- Inter Font -->
         <FontFamily x:Key="InterFont">/Fonts/Inter.ttc#Inter</FontFamily>
@@ -68,6 +71,12 @@
             <Setter Property="Padding" Value="5"/>
             <Setter Property="BorderBrush" Value="{StaticResource BorderColor}"/>
             <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="AcceptsReturn" Value="True"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="MaxWidth" Value="400"/>
+            <!-- Max width constraint added -->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TextBox">
@@ -90,20 +99,23 @@
             <Setter Property="BorderThickness" Value="1"/>
         </Style>
 
-        <!-- Dark Mode Button Style with Fluent Design -->
-        <Style x:Key="ModernButton" TargetType="Button">
+        <!-- Modern Button Style -->
+        <Style x:Key="ModernLargeButton" TargetType="Button">
             <Setter Property="FontFamily" Value="{StaticResource InterFont}"/>
-            <Setter Property="Background" Value="{StaticResource ButtonBackgroundColor}"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Background" Value="{StaticResource ModernButtonBackgroundColor}"/>
             <Setter Property="Foreground" Value="{StaticResource PrimaryTextColor}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource BorderColor}"/>
-            <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Padding" Value="15,5"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="10"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" 
-                                BorderBrush="{TemplateBinding BorderBrush}" 
-                                BorderThickness="{TemplateBinding BorderThickness}">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="5">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
@@ -111,9 +123,92 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="{StaticResource ButtonHoverColor}"/>
+                    <Setter Property="Background" Value="{StaticResource ModernButtonHoverColor}"/>
+                    <Setter Property="Foreground" Value="{StaticResource PrimaryTextColor}"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="{StaticResource ModernButtonPressedColor}"/>
+                    <Setter Property="Foreground" Value="{StaticResource PrimaryTextColor}"/>
                 </Trigger>
             </Style.Triggers>
+        </Style>
+
+        <!-- ScrollBar Style -->
+        <Style x:Key="CustomScrollBar" TargetType="ScrollBar">
+            <Setter Property="Background" Value="{StaticResource SecondaryBackgroundColor}" />
+            <Setter Property="Foreground" Value="{StaticResource ModernButtonBackgroundColor}" />
+            <Setter Property="Width" Value="12"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollBar">
+                        <Grid>
+                            <Track x:Name="PART_Track">
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton Command="ScrollBar.LineDownCommand" 
+                                                  Background="{StaticResource SecondaryBackgroundColor}" 
+                                                  Foreground="{StaticResource PrimaryTextColor}"
+                                                  IsEnabled="False" />
+                                </Track.DecreaseRepeatButton>
+                                <Track.IncreaseRepeatButton>
+                                    <RepeatButton Command="ScrollBar.LineUpCommand" 
+                                                  Background="{StaticResource SecondaryBackgroundColor}" 
+                                                  Foreground="{StaticResource PrimaryTextColor}"
+                                                  IsEnabled="False" />
+                                </Track.IncreaseRepeatButton>
+                                <Track.Thumb>
+                                    <Thumb Background="{StaticResource ModernButtonBackgroundColor}" />
+                                </Track.Thumb>
+                            </Track>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Modern ScrollViewer Style -->
+        <Style x:Key="ModernScrollViewer" TargetType="{x:Type ScrollViewer}">
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+            <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                        <Grid x:Name="Grid" Background="{TemplateBinding Background}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <DockPanel Margin="{TemplateBinding Padding}">
+                                <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" 
+                                                        Cursor="{TemplateBinding Cursor}" 
+                                                        Margin="0" 
+                                                        ContentTemplate="{TemplateBinding ContentTemplate}" 
+                                                        Content="{TemplateBinding Content}" 
+                                                        CanContentScroll="{TemplateBinding CanContentScroll}"/>
+                            </DockPanel>
+                            <ScrollBar x:Name="PART_HorizontalScrollBar" 
+                                       Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" 
+                                       Orientation="Horizontal" 
+                                       Grid.Row="1" 
+                                       Maximum="{TemplateBinding ScrollableWidth}" 
+                                       ViewportSize="{TemplateBinding ViewportWidth}" 
+                                       Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" 
+                                       Style="{StaticResource CustomScrollBar}"/>
+                            <ScrollBar x:Name="PART_VerticalScrollBar" 
+                                       Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" 
+                                       Orientation="Vertical" 
+                                       Grid.Column="1" 
+                                       Maximum="{TemplateBinding ScrollableHeight}" 
+                                       ViewportSize="{TemplateBinding ViewportHeight}" 
+                                       Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" 
+                                       Style="{StaticResource CustomScrollBar}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Application.Resources>
 </Application>

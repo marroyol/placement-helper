@@ -54,7 +54,6 @@ namespace PlacementHelper
             this.WindowState = WindowState.Minimized;
         }
 
-
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
