@@ -4,22 +4,43 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <!-- Dark Mode Color Palette -->
-        <SolidColorBrush x:Key="PrimaryBackgroundColor">#1E1E1E</SolidColorBrush>
-        <SolidColorBrush x:Key="SecondaryBackgroundColor">#2D2D30</SolidColorBrush>
-        <SolidColorBrush x:Key="AccentColor">#007ACC</SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryBackgroundColor">#16141c</SolidColorBrush>
+        <SolidColorBrush x:Key="SecondaryBackgroundColor">#312d3d</SolidColorBrush>
+        <SolidColorBrush x:Key="AccentColor">#2e283b</SolidColorBrush>
         <SolidColorBrush x:Key="PrimaryTextColor">#FFFFFF</SolidColorBrush>
-        <SolidColorBrush x:Key="SecondaryTextColor">#CCCCCC</SolidColorBrush>
-        <SolidColorBrush x:Key="BorderColor">#3E3E42</SolidColorBrush>
-        <SolidColorBrush x:Key="ButtonBackgroundColor">#2D2D30</SolidColorBrush>
-        <SolidColorBrush x:Key="ButtonHoverColor">#505050</SolidColorBrush>
+        <SolidColorBrush x:Key="SecondaryTextColor">#7d7a99</SolidColorBrush>
+        <SolidColorBrush x:Key="BorderColor">#16141c</SolidColorBrush>
+        <SolidColorBrush x:Key="ButtonBackgroundColor">#312d3d</SolidColorBrush>
+        <SolidColorBrush x:Key="ButtonHoverColor">#414052</SolidColorBrush>
         <SolidColorBrush x:Key="ErrorColor">#E74C3C</SolidColorBrush>
         <SolidColorBrush x:Key="CloseButtonHoverColor">#FF4C4C</SolidColorBrush>
         <SolidColorBrush x:Key="ModernButtonBackgroundColor">#313178</SolidColorBrush>
         <SolidColorBrush x:Key="ModernButtonHoverColor">#4e4e94</SolidColorBrush>
-        <SolidColorBrush x:Key="ModernButtonPressedColor">#6b6bda</SolidColorBrush>
+        <SolidColorBrush x:Key="ModernButtonPressedColor">#2e283b</SolidColorBrush>
 
         <!-- Inter Font -->
         <FontFamily x:Key="InterFont">/Fonts/Inter.ttc#Inter</FontFamily>
+
+        <!-- Gradient Brushes -->
+        <LinearGradientBrush x:Key="TextBoxGradientBrush" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#262430" Offset="0.0"/>
+            <GradientStop Color="#16141c" Offset="1.0"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="ButtonGradientBrush" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#39374d" Offset="0.0"/>
+            <GradientStop Color="#312d3d" Offset="1.0"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="ButtonHoverGradientBrush" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#4e4e94" Offset="0.0"/>
+            <GradientStop Color="#6b6bda" Offset="1.0"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="ButtonPressedGradientBrush" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#6b6bda" Offset="0.0"/>
+            <GradientStop Color="#7f7fff" Offset="1.0"/>
+        </LinearGradientBrush>
 
         <!-- Window Button Style -->
         <Style x:Key="WindowButtonStyle" TargetType="Button">
@@ -62,10 +83,10 @@
             </Style.Triggers>
         </Style>
 
-        <!-- Dark Mode TextBox Style with Fluent Design -->
+        <!-- Modern TextBox Style -->
         <Style x:Key="ModernTextBox" TargetType="TextBox">
             <Setter Property="FontFamily" Value="{StaticResource InterFont}"/>
-            <Setter Property="Background" Value="{StaticResource SecondaryBackgroundColor}"/>
+            <Setter Property="Background" Value="{StaticResource TextBoxGradientBrush}"/>
             <Setter Property="Foreground" Value="{StaticResource PrimaryTextColor}"/>
             <Setter Property="CaretBrush" Value="{StaticResource AccentColor}"/>
             <Setter Property="Padding" Value="5"/>
@@ -76,7 +97,6 @@
             <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
             <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"/>
             <Setter Property="MaxWidth" Value="400"/>
-            <!-- Max width constraint added -->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TextBox">
@@ -103,7 +123,7 @@
         <Style x:Key="ModernLargeButton" TargetType="Button">
             <Setter Property="FontFamily" Value="{StaticResource InterFont}"/>
             <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Background" Value="{StaticResource ModernButtonBackgroundColor}"/>
+            <Setter Property="Background" Value="{StaticResource ButtonGradientBrush}"/>
             <Setter Property="Foreground" Value="{StaticResource PrimaryTextColor}"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
@@ -123,11 +143,11 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="{StaticResource ModernButtonHoverColor}"/>
+                    <Setter Property="Background" Value="{StaticResource ButtonHoverGradientBrush}"/>
                     <Setter Property="Foreground" Value="{StaticResource PrimaryTextColor}"/>
                 </Trigger>
                 <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Background" Value="{StaticResource ModernButtonPressedColor}"/>
+                    <Setter Property="Background" Value="{StaticResource ButtonPressedGradientBrush}"/>
                     <Setter Property="Foreground" Value="{StaticResource PrimaryTextColor}"/>
                 </Trigger>
             </Style.Triggers>
@@ -145,18 +165,18 @@
                             <Track x:Name="PART_Track">
                                 <Track.DecreaseRepeatButton>
                                     <RepeatButton Command="ScrollBar.LineDownCommand" 
-                                                  Background="{StaticResource SecondaryBackgroundColor}" 
-                                                  Foreground="{StaticResource PrimaryTextColor}"
-                                                  IsEnabled="False" />
+                                                  Background="{StaticResource PrimaryBackgroundColor}" 
+                                                  Foreground="{StaticResource PrimaryBackgroundColor}"
+                                                  IsEnabled="True" />
                                 </Track.DecreaseRepeatButton>
                                 <Track.IncreaseRepeatButton>
                                     <RepeatButton Command="ScrollBar.LineUpCommand" 
-                                                  Background="{StaticResource SecondaryBackgroundColor}" 
-                                                  Foreground="{StaticResource PrimaryTextColor}"
-                                                  IsEnabled="False" />
+                                                  Background="{StaticResource PrimaryBackgroundColor}" 
+                                                  Foreground="{StaticResource PrimaryBackgroundColor}"
+                                                  IsEnabled="True" />
                                 </Track.IncreaseRepeatButton>
                                 <Track.Thumb>
-                                    <Thumb Background="{StaticResource ModernButtonBackgroundColor}" />
+                                    <Thumb Background="{StaticResource ButtonBackgroundColor}" />
                                 </Track.Thumb>
                             </Track>
                         </Grid>
@@ -247,5 +267,14 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style TargetType="Border" x:Key="ShadowBorderStyle">
+            <Setter Property="SnapsToDevicePixels" Value="true" />
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="3" Opacity="0.9" Color="Black"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Application.Resources>
 </Application>

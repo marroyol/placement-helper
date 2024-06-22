@@ -8,7 +8,7 @@
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0" ResizeBorderThickness="5" CornerRadius="10"/>
     </WindowChrome.WindowChrome>
-    <Border CornerRadius="10" Background="{StaticResource PrimaryBackgroundColor}">
+    <Border Style="{StaticResource ShadowBorderStyle}" CornerRadius="10" Background="{StaticResource PrimaryBackgroundColor}">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
