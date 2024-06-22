@@ -21,26 +21,36 @@
         <!-- Inter Font -->
         <FontFamily x:Key="InterFont">/Fonts/Inter.ttc#Inter</FontFamily>
 
-        <!-- Gradient Brushes -->
-        <LinearGradientBrush x:Key="TextBoxGradientBrush" StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Color="#262430" Offset="0.0"/>
-            <GradientStop Color="#16141c" Offset="1.0"/>
-        </LinearGradientBrush>
-
-        <LinearGradientBrush x:Key="ButtonGradientBrush" StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Color="#39374d" Offset="0.0"/>
-            <GradientStop Color="#312d3d" Offset="1.0"/>
-        </LinearGradientBrush>
-
-        <LinearGradientBrush x:Key="ButtonHoverGradientBrush" StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Color="#4e4e94" Offset="0.0"/>
-            <GradientStop Color="#6b6bda" Offset="1.0"/>
-        </LinearGradientBrush>
-
-        <LinearGradientBrush x:Key="ButtonPressedGradientBrush" StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Color="#6b6bda" Offset="0.0"/>
-            <GradientStop Color="#7f7fff" Offset="1.0"/>
-        </LinearGradientBrush>
+        <!-- Hide ScrollBars in ScrollViewer -->
+        <Style x:Key="ModernScrollViewer" TargetType="{x:Type ScrollViewer}">
+            <Setter Property="VerticalScrollBarVisibility" Value="Hidden" />
+            <Setter Property="HorizontalScrollBarVisibility" Value="Hidden" />
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                        <Grid x:Name="Grid" Background="{TemplateBinding Background}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <DockPanel Margin="{TemplateBinding Padding}">
+                                <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" 
+                                                        Cursor="{TemplateBinding Cursor}" 
+                                                        Margin="0" 
+                                                        ContentTemplate="{TemplateBinding ContentTemplate}" 
+                                                        Content="{TemplateBinding Content}" 
+                                                        CanContentScroll="{TemplateBinding CanContentScroll}"/>
+                            </DockPanel>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
         <!-- Window Button Style -->
         <Style x:Key="WindowButtonStyle" TargetType="Button">
@@ -86,7 +96,7 @@
         <!-- Modern TextBox Style -->
         <Style x:Key="ModernTextBox" TargetType="TextBox">
             <Setter Property="FontFamily" Value="{StaticResource InterFont}"/>
-            <Setter Property="Background" Value="{StaticResource TextBoxGradientBrush}"/>
+            <Setter Property="Background" Value="#262430"/>
             <Setter Property="Foreground" Value="{StaticResource PrimaryTextColor}"/>
             <Setter Property="CaretBrush" Value="{StaticResource AccentColor}"/>
             <Setter Property="Padding" Value="5"/>
@@ -123,7 +133,7 @@
         <Style x:Key="ModernLargeButton" TargetType="Button">
             <Setter Property="FontFamily" Value="{StaticResource InterFont}"/>
             <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Background" Value="{StaticResource ButtonGradientBrush}"/>
+            <Setter Property="Background" Value="#39374d"/>
             <Setter Property="Foreground" Value="{StaticResource PrimaryTextColor}"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
@@ -143,93 +153,16 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="{StaticResource ButtonHoverGradientBrush}"/>
+                    <Setter Property="Background" Value="{StaticResource ModernButtonHoverColor}"/>
                     <Setter Property="Foreground" Value="{StaticResource PrimaryTextColor}"/>
                 </Trigger>
                 <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Background" Value="{StaticResource ButtonPressedGradientBrush}"/>
+                    <Setter Property="Background" Value="{StaticResource ModernButtonPressedColor}"/>
                     <Setter Property="Foreground" Value="{StaticResource PrimaryTextColor}"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
 
-        <!-- ScrollBar Style -->
-        <Style x:Key="CustomScrollBar" TargetType="ScrollBar">
-            <Setter Property="Background" Value="{StaticResource SecondaryBackgroundColor}" />
-            <Setter Property="Foreground" Value="{StaticResource ModernButtonBackgroundColor}" />
-            <Setter Property="Width" Value="12"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="ScrollBar">
-                        <Grid>
-                            <Track x:Name="PART_Track">
-                                <Track.DecreaseRepeatButton>
-                                    <RepeatButton Command="ScrollBar.LineDownCommand" 
-                                                  Background="{StaticResource PrimaryBackgroundColor}" 
-                                                  Foreground="{StaticResource PrimaryBackgroundColor}"
-                                                  IsEnabled="True" />
-                                </Track.DecreaseRepeatButton>
-                                <Track.IncreaseRepeatButton>
-                                    <RepeatButton Command="ScrollBar.LineUpCommand" 
-                                                  Background="{StaticResource PrimaryBackgroundColor}" 
-                                                  Foreground="{StaticResource PrimaryBackgroundColor}"
-                                                  IsEnabled="True" />
-                                </Track.IncreaseRepeatButton>
-                                <Track.Thumb>
-                                    <Thumb Background="{StaticResource ButtonBackgroundColor}" />
-                                </Track.Thumb>
-                            </Track>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <!-- Modern ScrollViewer Style -->
-        <Style x:Key="ModernScrollViewer" TargetType="{x:Type ScrollViewer}">
-            <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
-            <Setter Property="HorizontalScrollBarVisibility" Value="Auto" />
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type ScrollViewer}">
-                        <Grid x:Name="Grid" Background="{TemplateBinding Background}">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
-                            <DockPanel Margin="{TemplateBinding Padding}">
-                                <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" 
-                                                        Cursor="{TemplateBinding Cursor}" 
-                                                        Margin="0" 
-                                                        ContentTemplate="{TemplateBinding ContentTemplate}" 
-                                                        Content="{TemplateBinding Content}" 
-                                                        CanContentScroll="{TemplateBinding CanContentScroll}"/>
-                            </DockPanel>
-                            <ScrollBar x:Name="PART_HorizontalScrollBar" 
-                                       Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" 
-                                       Orientation="Horizontal" 
-                                       Grid.Row="1" 
-                                       Maximum="{TemplateBinding ScrollableWidth}" 
-                                       ViewportSize="{TemplateBinding ViewportWidth}" 
-                                       Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" 
-                                       Style="{StaticResource CustomScrollBar}"/>
-                            <ScrollBar x:Name="PART_VerticalScrollBar" 
-                                       Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" 
-                                       Orientation="Vertical" 
-                                       Grid.Column="1" 
-                                       Maximum="{TemplateBinding ScrollableHeight}" 
-                                       ViewportSize="{TemplateBinding ViewportHeight}" 
-                                       Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" 
-                                       Style="{StaticResource CustomScrollBar}"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
         <!-- Menu Style -->
         <Style x:Key="DarkThemeMenu" TargetType="{x:Type Menu}">
             <Setter Property="Background" Value="{StaticResource SecondaryBackgroundColor}"/>
@@ -267,14 +200,14 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
         <Style TargetType="Border" x:Key="ShadowBorderStyle">
             <Setter Property="SnapsToDevicePixels" Value="true" />
             <Setter Property="Effect">
                 <Setter.Value>
-                    <DropShadowEffect BlurRadius="10" ShadowDepth="3" Opacity="0.9" Color="Black"/>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="3" Opacity="0.5" Color="Black"/>
                 </Setter.Value>
             </Setter>
         </Style>
-
     </Application.Resources>
 </Application>

@@ -12,7 +12,7 @@
                 <Button Content="&#xE106;" Click="CloseButton_Click" Style="{StaticResource CloseButtonStyle}" HorizontalAlignment="Right"/>
             </DockPanel>
 
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <ScrollViewer Grid.Row="1" Style="{StaticResource ModernScrollViewer}">
                 <StackPanel Margin="10">
                     <TextBlock Text="Week Number:" Foreground="{StaticResource PrimaryTextColor}" Margin="0,10,0,5" FontFamily="{StaticResource InterFont}"/>
                     <TextBox x:Name="weekNumberTextBox" Style="{StaticResource ModernTextBox}"/>
