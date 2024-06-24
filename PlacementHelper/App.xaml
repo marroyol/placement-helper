@@ -8,7 +8,7 @@
         <SolidColorBrush x:Key="SecondaryBackgroundColor">#312d3d</SolidColorBrush>
         <SolidColorBrush x:Key="AccentColor">#2e283b</SolidColorBrush>
         <SolidColorBrush x:Key="PrimaryTextColor">#FFFFFF</SolidColorBrush>
-        <SolidColorBrush x:Key="SecondaryTextColor">#7d7a99</SolidColorBrush>
+        <SolidColorBrush x:Key="SecondaryTextColor">#FFFFFF</SolidColorBrush>
         <SolidColorBrush x:Key="BorderColor">#16141c</SolidColorBrush>
         <SolidColorBrush x:Key="ButtonBackgroundColor">#312d3d</SolidColorBrush>
         <SolidColorBrush x:Key="ButtonHoverColor">#414052</SolidColorBrush>
@@ -17,6 +17,7 @@
         <SolidColorBrush x:Key="ModernButtonBackgroundColor">#313178</SolidColorBrush>
         <SolidColorBrush x:Key="ModernButtonHoverColor">#4e4e94</SolidColorBrush>
         <SolidColorBrush x:Key="ModernButtonPressedColor">#2e283b</SolidColorBrush>
+        <SolidColorBrush x:Key="CalenderColor">#bdbad9</SolidColorBrush>
 
         <!-- Inter Font -->
         <FontFamily x:Key="InterFont">/Fonts/Inter.ttc#Inter</FontFamily>
@@ -119,61 +120,46 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
-        <!-- Dark Mode DatePicker Style with Fluent Design -->
-        <Style x:Key="ModernDatePicker" TargetType="DatePicker">
-            <Setter Property="FontFamily" Value="{StaticResource InterFont}"/>
-            <Setter Property="Background" Value="{StaticResource SecondaryBackgroundColor}"/>
+        <!-- Modern Calendar Style -->
+        <Style x:Key="ModernCalendarStyle" TargetType="Calendar">
+            <Setter Property="Background" Value="{StaticResource CalenderColor}"/>
             <Setter Property="Foreground" Value="{StaticResource PrimaryTextColor}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource PrimaryTextColor}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontFamily" Value="{StaticResource InterFont}"/>
+        </Style>
+
+        <!-- Updated Dark Mode DatePicker Style with Fluent Design -->
+        <Style x:Key="ModernDatePicker" TargetType="DatePicker">
+            <Setter Property="Foreground" Value="{StaticResource PrimaryTextColor}"/>
+            <Setter Property="Background" Value="{StaticResource SecondaryBackgroundColor}"/>
             <Setter Property="BorderBrush" Value="{StaticResource BorderColor}"/>
             <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="Padding" Value="5"/>
-            <Setter Property="CalendarStyle">
-                <Setter.Value>
-                    <Style TargetType="Calendar">
-                        <Setter Property="Background" Value="{StaticResource SecondaryBackgroundColor}"/>
-                        <Setter Property="Foreground" Value="{StaticResource PrimaryTextColor}"/>
-                        <Setter Property="BorderBrush" Value="{StaticResource BorderColor}"/>
-                        <Setter Property="BorderThickness" Value="1"/>
-                    </Style>
-                </Setter.Value>
-            </Setter>
+            <Setter Property="CalendarStyle" Value="{StaticResource ModernCalendarStyle}"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="DatePicker">
-                        <Grid>
-                            <Popup x:Name="PART_Popup"
-                                   AllowsTransparency="True"
-                                   Placement="Bottom"
-                                   IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}"
-                                   StaysOpen="False">
-                                <Border x:Name="PART_PopupBorder"
-                                        Background="{StaticResource SecondaryBackgroundColor}"
-                                        BorderBrush="{StaticResource BorderColor}"
-                                        BorderThickness="1">
-                                    <Calendar x:Name="PART_Calendar"
-                                              Background="{StaticResource SecondaryBackgroundColor}"
-                                              Foreground="{StaticResource PrimaryTextColor}"/>
-                                </Border>
+                        <Grid x:Name="PART_Root">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="PART_Button" Grid.Column="1" Foreground="{TemplateBinding Foreground}" Focusable="False">
+                                <Button.Content>
+                                    <TextBlock Text="▼" FontSize="16" />
+                                </Button.Content>
+                            </Button>
+                            <DatePickerTextBox x:Name="PART_TextBox" Grid.Column="0" 
+                                       Foreground="{StaticResource PrimaryTextColor}"
+                                       Background="{StaticResource SecondaryBackgroundColor}"
+                                       BorderBrush="{StaticResource SecondaryBackgroundColor}"
+                                       BorderThickness="{TemplateBinding BorderThickness}"
+                                       Padding="5,3"
+                                       FontFamily="{StaticResource InterFont}"/>
+                            <Popup x:Name="PART_Popup" StaysOpen="False" AllowsTransparency="True" 
+                           PopupAnimation="Fade" PlacementTarget="{Binding ElementName=PART_Root}">
+                                <Calendar x:Name="PART_Calendar" Style="{StaticResource ModernCalendarStyle}" />
                             </Popup>
-                            <TextBox x:Name="PART_TextBox"
-                                     Background="{TemplateBinding Background}"
-                                     Foreground="{TemplateBinding Foreground}"
-                                     BorderBrush="{TemplateBinding BorderBrush}"
-                                     BorderThickness="{TemplateBinding BorderThickness}"
-                                     Padding="{TemplateBinding Padding}"
-                                     IsReadOnly="True"
-                                     VerticalContentAlignment="Center"/>
-                            <Button x:Name="PART_Button"
-                                    Content="▼"
-                                    Background="{TemplateBinding Background}"
-                                    Foreground="{TemplateBinding Foreground}"
-                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                    Padding="{TemplateBinding Padding}"
-                                    Width="20"
-                                    HorizontalAlignment="Right"
-                                    VerticalAlignment="Stretch"/>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
