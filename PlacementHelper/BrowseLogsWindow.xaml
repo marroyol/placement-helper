@@ -7,19 +7,19 @@
     <WindowChrome.WindowChrome>
         <WindowChrome CaptionHeight="0" ResizeBorderThickness="5" CornerRadius="10"/>
     </WindowChrome.WindowChrome>
-    <Border CornerRadius="10" Background="{StaticResource PrimaryBackgroundColor}">
+    <Border CornerRadius="10" Background="{StaticResource PrimaryBackgroundColor}" Style="{StaticResource ShadowBorderStyle}">
         <DockPanel>
             <!-- Title Bar -->
-            <DockPanel DockPanel.Dock="Top" Background="{StaticResource SecondaryBackgroundColor}" Height="30" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown">
-                <TextBlock Text="Browse Logs" Foreground="{StaticResource PrimaryTextColor}" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="{StaticResource InterFont}"/>
+            <DockPanel DockPanel.Dock="Top" Background="{StaticResource SecondaryBackgroundColor}" Height="40" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" VerticalAlignment="Top" Margin="0,0,0,10">
+                <TextBlock Text="Browse Logs" Foreground="{StaticResource PrimaryTextColor}" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="{StaticResource InterFont}" FontSize="16" FontWeight="Bold"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Content="&#xE949;" Click="MinimizeButton_Click" Style="{StaticResource WindowButtonStyle}"/>
-                    <Button Content="&#xE739;" Click="MaximizeButton_Click" Style="{StaticResource WindowButtonStyle}"/>
-                    <Button Content="&#xE106;" Click="CloseButton_Click" Style="{StaticResource CloseButtonStyle}"/>
+                    <Button Content="&#xE949;" Click="MinimizeButton_Click" Style="{StaticResource WindowButtonStyle}" ToolTip="Minimize"/>
+                    <Button Content="&#xE739;" x:Name="MaximizeButton" Click="MaximizeButton_Click" Style="{StaticResource WindowButtonStyle}" ToolTip="Maximize"/>
+                    <Button Content="&#xE106;" Click="CloseButton_Click" Style="{StaticResource CloseButtonStyle}" ToolTip="Close"/>
                 </StackPanel>
             </DockPanel>
             <!-- Menu Bar -->
-            <Menu DockPanel.Dock="Top" Style="{StaticResource DarkThemeMenu}">
+            <Menu DockPanel.Dock="Top" Style="{StaticResource DarkThemeMenu}" Margin="0,0,0,10">
                 <MenuItem Header="File" Style="{StaticResource DarkThemeMenuItem}">
                     <MenuItem Header="Open" Click="Open_Click" InputGestureText="Ctrl+O" Style="{StaticResource DarkThemeMenuItem}">
                         <MenuItem.Icon>
@@ -69,15 +69,18 @@
                     <ColumnDefinition Width="70*"/>
                 </Grid.ColumnDefinitions>
                 <!-- Log ListBox -->
-                <ListBox x:Name="logListBox" Grid.Column="0" Background="{StaticResource SecondaryBackgroundColor}" 
-                         Foreground="{StaticResource PrimaryTextColor}" BorderBrush="{StaticResource BorderColor}"
-                         SelectionChanged="LogListBox_SelectionChanged" Margin="0,0,5,0"/>
+                <Border Grid.Column="0" Background="{StaticResource SecondaryBackgroundColor}" CornerRadius="5" BorderBrush="{StaticResource BorderColor}" BorderThickness="1" Margin="0,0,5,0">
+                    <ListBox x:Name="logListBox" Background="{StaticResource SecondaryBackgroundColor}" 
+                             Foreground="{StaticResource PrimaryTextColor}" BorderThickness="0"
+                             SelectionChanged="LogListBox_SelectionChanged"/>
+                </Border>
                 <!-- Details TextBox -->
-                <TextBox x:Name="detailsTextBox" Grid.Column="1" Style="{StaticResource ModernTextBox}"
-                         Margin="5,0,0,0" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" IsReadOnly="True"/>
+                <Border Grid.Column="1" Background="{StaticResource SecondaryBackgroundColor}" CornerRadius="5" BorderBrush="{StaticResource BorderColor}" BorderThickness="1" Margin="5,0,0,0">
+                    <TextBox x:Name="detailsTextBox" Style="{StaticResource ModernTextBox}" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" IsReadOnly="True" BorderThickness="0" Padding="10"/>
+                </Border>
                 <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5,10,0,0">
-                    <Button Content="Edit" Click="Edit_Click" Style="{StaticResource ModernLargeButton}" Width="80"/>
-                    <Button Content="Delete" Click="Delete_Click" Style="{StaticResource ModernLargeButton}" Width="80"/>
+                    <Button Content="Edit" Click="Edit_Click" Style="{StaticResource ModernLargeButton}" Width="80" Margin="5" ToolTip="Edit Selected Log"/>
+                    <Button Content="Delete" Click="Delete_Click" Style="{StaticResource ModernLargeButton}" Width="80" Margin="5" ToolTip="Delete Selected Log"/>
                 </StackPanel>
             </Grid>
         </DockPanel>
