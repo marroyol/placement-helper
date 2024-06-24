@@ -45,7 +45,7 @@ Placement Helper is a simple application designed to assist placement students a
 13. **Browse Logs**: Browse previously saved log entries.
 
 ## Screenshots 📸
-
+###### Note: Some of these are out of date due to UI updates, but here's the general idea.
 ![image](https://github.com/marroyol/placement-helper/assets/114653099/3b254d06-ee6a-42bc-bf9f-9620c6944746)
 
 ![image](https://github.com/marroyol/placement-helper/assets/114653099/8cca556c-091f-4ef2-9d32-d1d6e4addbc8)
