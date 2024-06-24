@@ -1,6 +1,6 @@
 # Placement Helper 
 
-Placement Helper is a simple application designed to assist placement students at the University of Plymouth with their weekly log suggestions. To be honest, I designed it to help myself specifically but I thought it'd be nice to share in case anyone else could get any use out of it! This app aims to facilitate the process of writing reflective essays at the end of the placement period by helping students keep track of their weekly activities, reflections, and feedback.
+Placement Helper is a simple application designed to assist placement students at the University of Plymouth with their weekly logs (a suggestion to help with the reflective essay we're meant to write at the end of our placement). To be honest, I made it real quick to help myself specifically but I thought it'd be nice to share in case anyone else could get any use out of it! 
 
 ## Features 📋
 
@@ -43,4 +43,13 @@ Placement Helper is a simple application designed to assist placement students a
 11. **Goals for Next Week**: Outline your aims or objectives for the following week.
 12. **Save Log**: Save the log entry.
 13. **Browse Logs**: Browse previously saved log entries.
+
+## Screenshots 📸
+
+![image](https://github.com/marroyol/placement-helper/assets/114653099/3b254d06-ee6a-42bc-bf9f-9620c6944746)
+
+![image](https://github.com/marroyol/placement-helper/assets/114653099/8cca556c-091f-4ef2-9d32-d1d6e4addbc8)
+
+![image](https://github.com/marroyol/placement-helper/assets/114653099/dabeaa3b-1486-4ccb-b765-15f47f539713)
+
 
