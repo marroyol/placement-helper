@@ -7,6 +7,7 @@ using System.Windows.Input;
 using System.IO;
 using Newtonsoft.Json;
 using Microsoft.Win32;
+using System.Windows.Documents;
 
 namespace PlacementHelper
 {
@@ -42,18 +43,64 @@ namespace PlacementHelper
 
         private void DisplayLogDetails(WeeklyLog log)
         {
-            detailsTextBox.Text = $"Week Number: {log.WeekNumber}\r\n" +
-                                  $"Start Date: {log.StartDate.ToShortDateString()}\r\n" +
-                                  $"Activity Description: {log.ActivityDescription}\r\n" +
-                                  $"Duration: {log.Duration} hours\r\n" +
-                                  $"Describe: {log.Describe}\r\n" +
-                                  $"Interpret: {log.Interpret}\r\n" +
-                                  $"Evaluate: {log.Evaluate}\r\n" +
-                                  $"Plan: {log.Plan}\r\n" +
-                                  $"Additional Notes: {log.AdditionalNotes}\r\n" +
-                                  $"Feedback Received: {log.FeedbackReceived}\r\n" +
-                                  $"Goals for Next Week: {log.GoalsForNextWeek}";
+            detailsTextBox.Document.Blocks.Clear();
+
+            var weekNumberParagraph = new Paragraph();
+            weekNumberParagraph.Inlines.Add(new Bold(new Run("Week Number: ")));
+            weekNumberParagraph.Inlines.Add(new Run(log.WeekNumber.ToString()));
+            detailsTextBox.Document.Blocks.Add(weekNumberParagraph);
+
+            var startDateParagraph = new Paragraph();
+            startDateParagraph.Inlines.Add(new Bold(new Run("Start Date: ")));
+            startDateParagraph.Inlines.Add(new Run(log.StartDate.ToShortDateString()));
+            detailsTextBox.Document.Blocks.Add(startDateParagraph);
+
+            var activityDescriptionParagraph = new Paragraph();
+            activityDescriptionParagraph.Inlines.Add(new Bold(new Run("Activity Description: ")));
+            activityDescriptionParagraph.Inlines.Add(new Run(log.ActivityDescription));
+            detailsTextBox.Document.Blocks.Add(activityDescriptionParagraph);
+
+            var durationParagraph = new Paragraph();
+            durationParagraph.Inlines.Add(new Bold(new Run("Duration: ")));
+            durationParagraph.Inlines.Add(new Run($"{log.Duration} hours"));
+            detailsTextBox.Document.Blocks.Add(durationParagraph);
+
+            var describeParagraph = new Paragraph();
+            describeParagraph.Inlines.Add(new Bold(new Run("Describe: ")));
+            describeParagraph.Inlines.Add(new Run(log.Describe));
+            detailsTextBox.Document.Blocks.Add(describeParagraph);
+
+            var interpretParagraph = new Paragraph();
+            interpretParagraph.Inlines.Add(new Bold(new Run("Interpret: ")));
+            interpretParagraph.Inlines.Add(new Run(log.Interpret));
+            detailsTextBox.Document.Blocks.Add(interpretParagraph);
+
+            var evaluateParagraph = new Paragraph();
+            evaluateParagraph.Inlines.Add(new Bold(new Run("Evaluate: ")));
+            evaluateParagraph.Inlines.Add(new Run(log.Evaluate));
+            detailsTextBox.Document.Blocks.Add(evaluateParagraph);
+
+            var planParagraph = new Paragraph();
+            planParagraph.Inlines.Add(new Bold(new Run("Plan: ")));
+            planParagraph.Inlines.Add(new Run(log.Plan));
+            detailsTextBox.Document.Blocks.Add(planParagraph);
+
+            var additionalNotesParagraph = new Paragraph();
+            additionalNotesParagraph.Inlines.Add(new Bold(new Run("Additional Notes: ")));
+            additionalNotesParagraph.Inlines.Add(new Run(log.AdditionalNotes));
+            detailsTextBox.Document.Blocks.Add(additionalNotesParagraph);
+
+            var feedbackReceivedParagraph = new Paragraph();
+            feedbackReceivedParagraph.Inlines.Add(new Bold(new Run("Feedback Received: ")));
+            feedbackReceivedParagraph.Inlines.Add(new Run(log.FeedbackReceived));
+            detailsTextBox.Document.Blocks.Add(feedbackReceivedParagraph);
+
+            var goalsForNextWeekParagraph = new Paragraph();
+            goalsForNextWeekParagraph.Inlines.Add(new Bold(new Run("Goals for Next Week: ")));
+            goalsForNextWeekParagraph.Inlines.Add(new Run(log.GoalsForNextWeek));
+            detailsTextBox.Document.Blocks.Add(goalsForNextWeekParagraph);
         }
+
 
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -97,7 +144,7 @@ namespace PlacementHelper
                         logs.Clear();
                         logs.AddRange(loadedLogs);
                         PopulateLogList();
-                        mainWindow.SaveLogs(); 
+                        mainWindow.SaveLogs();
                         MessageBox.Show("Logs loaded successfully.", "Load Successful", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
@@ -170,7 +217,7 @@ namespace PlacementHelper
                     logs.RemoveAt(logListBox.SelectedIndex);
                     mainWindow.SaveLogs();
                     PopulateLogList();
-                    detailsTextBox.Clear();
+                    detailsTextBox.Document.Blocks.Clear();
                     MessageBox.Show("Log details cut to clipboard and removed from the list.", "Cut Successful", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
@@ -214,7 +261,7 @@ namespace PlacementHelper
                     logs.RemoveAt(logListBox.SelectedIndex);
                     mainWindow.SaveLogs();
                     PopulateLogList();
-                    detailsTextBox.Clear();
+                    detailsTextBox.Document.Blocks.Clear();
                     MessageBox.Show("Log deleted successfully.", "Delete Successful", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }

@@ -74,14 +74,22 @@
                              Foreground="{StaticResource PrimaryTextColor}" BorderThickness="0"
                              SelectionChanged="LogListBox_SelectionChanged"/>
                 </Border>
-                <!-- Details TextBox -->
+                <!-- Details RichTextBox with ScrollViewer -->
                 <Border Grid.Column="1" Background="{StaticResource SecondaryBackgroundColor}" CornerRadius="5" BorderBrush="{StaticResource BorderColor}" BorderThickness="1" Margin="5,0,0,0">
-                    <TextBox x:Name="detailsTextBox" Style="{StaticResource ModernTextBox}" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" IsReadOnly="True" BorderThickness="0" Padding="10"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+                            <RichTextBox x:Name="detailsTextBox" Background="{StaticResource SecondaryBackgroundColor}" Foreground="{StaticResource PrimaryTextColor}" IsReadOnly="True" BorderThickness="0"/>
+                        </ScrollViewer>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5,10,0,10">
+                            <Button Content="Edit" Click="Edit_Click" Style="{StaticResource ModernLargeButton}" Width="80" Margin="5" ToolTip="Edit Selected Log"/>
+                            <Button Content="Delete" Click="Delete_Click" Style="{StaticResource ModernLargeButton}" Width="80" Margin="5" ToolTip="Delete Selected Log"/>
+                        </StackPanel>
+                    </Grid>
                 </Border>
-                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5,10,0,0">
-                    <Button Content="Edit" Click="Edit_Click" Style="{StaticResource ModernLargeButton}" Width="80" Margin="5" ToolTip="Edit Selected Log"/>
-                    <Button Content="Delete" Click="Delete_Click" Style="{StaticResource ModernLargeButton}" Width="80" Margin="5" ToolTip="Delete Selected Log"/>
-                </StackPanel>
             </Grid>
         </DockPanel>
     </Border>
