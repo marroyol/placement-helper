@@ -129,7 +129,6 @@
             <Setter Property="FontFamily" Value="{StaticResource InterFont}"/>
         </Style>
 
-        <!-- Updated Dark Mode DatePicker Style with Fluent Design -->
         <Style x:Key="ModernDatePicker" TargetType="DatePicker">
             <Setter Property="Foreground" Value="{StaticResource PrimaryTextColor}"/>
             <Setter Property="Background" Value="{StaticResource SecondaryBackgroundColor}"/>
@@ -144,20 +143,23 @@
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
-                            <Button x:Name="PART_Button" Grid.Column="1" Foreground="{TemplateBinding Foreground}" Focusable="False">
+                            <Button x:Name="PART_Button" Grid.Column="1" 
+                            Foreground="{StaticResource PrimaryTextColor}" 
+                            Background="{StaticResource SecondaryBackgroundColor}"
+                            Focusable="False">
                                 <Button.Content>
                                     <TextBlock Text="▼" FontSize="16" />
                                 </Button.Content>
                             </Button>
                             <DatePickerTextBox x:Name="PART_TextBox" Grid.Column="0" 
-                                       Foreground="{StaticResource PrimaryTextColor}"
-                                       Background="{StaticResource SecondaryBackgroundColor}"
-                                       BorderBrush="{StaticResource SecondaryBackgroundColor}"
-                                       BorderThickness="{TemplateBinding BorderThickness}"
-                                       Padding="5,3"
-                                       FontFamily="{StaticResource InterFont}"/>
+                               Foreground="{StaticResource PrimaryTextColor}"
+                               Background="{StaticResource SecondaryBackgroundColor}"
+                               BorderBrush="{StaticResource SecondaryBackgroundColor}"
+                               BorderThickness="{TemplateBinding BorderThickness}"
+                               Padding="5,3"
+                               FontFamily="{StaticResource InterFont}"/>
                             <Popup x:Name="PART_Popup" StaysOpen="False" AllowsTransparency="True" 
-                           PopupAnimation="Fade" PlacementTarget="{Binding ElementName=PART_Root}">
+                   PopupAnimation="Fade" PlacementTarget="{Binding ElementName=PART_Root}">
                                 <Calendar x:Name="PART_Calendar" Style="{StaticResource ModernCalendarStyle}" />
                             </Popup>
                         </Grid>
